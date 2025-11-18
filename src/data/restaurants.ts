@@ -1,0 +1,311 @@
+export interface Restaurant {
+  id: string;
+  name: string;
+  description: string;
+  cuisine: string[];
+  rating: number;
+  reviewCount: number;
+  deliveryTime: string;
+  deliveryFee: number;
+  minOrder: number;
+  image: ReturnType<typeof require>;
+  location: {
+    address: string;
+    latitude: number;
+    longitude: number;
+  };
+  tags: string[];
+  isOpen: boolean;
+  openingHours: {
+    monday: string;
+    tuesday: string;
+    wednesday: string;
+    thursday: string;
+    friday: string;
+    saturday: string;
+    sunday: string;
+  };
+}
+
+export const restaurants: Restaurant[] = [
+  {
+    id: "rest_001",
+    name: "Pizza Perfetto",
+    description: "Authentic Italian pizza & pasta",
+    cuisine: ["Italian", "Pizza"],
+    rating: 4.6,
+    reviewCount: 1247,
+    deliveryTime: "25-35 min",
+    deliveryFee: 1.9,
+    minOrder: 10.0,
+    image: require("@/assets/images/dummy/pizza_perfetto.png"),
+    location: {
+      address: "Prinzipalmarkt 12, 48143 Münster",
+      latitude: 51.9625,
+      longitude: 7.6257,
+    },
+    tags: ["Fast delivery", "Free delivery over €15"],
+    isOpen: true,
+    openingHours: {
+      monday: "11:00-22:00",
+      tuesday: "11:00-22:00",
+      wednesday: "11:00-22:00",
+      thursday: "11:00-22:00",
+      friday: "11:00-23:00",
+      saturday: "12:00-23:00",
+      sunday: "12:00-22:00",
+    },
+  },
+  {
+    id: "rest_002",
+    name: "Burgerhaven",
+    description: "Juicy burgers & crispy fries",
+    cuisine: ["American", "Burgers"],
+    rating: 4.8,
+    reviewCount: 2156,
+    deliveryTime: "20-30 min",
+    deliveryFee: 2.5,
+    minOrder: 12.0,
+    image: require("@/assets/images/dummy/burgerhaven.png"),
+    location: {
+      address: "Salzstraße 28, 48143 Münster",
+      latitude: 51.9618,
+      longitude: 7.6289,
+    },
+    tags: ["Popular", "Chef's Choice"],
+    isOpen: true,
+    openingHours: {
+      monday: "11:30-22:30",
+      tuesday: "11:30-22:30",
+      wednesday: "11:30-22:30",
+      thursday: "11:30-22:30",
+      friday: "11:30-00:00",
+      saturday: "12:00-00:00",
+      sunday: "12:00-22:00",
+    },
+  },
+  {
+    id: "rest_003",
+    name: "Sushi Takumi",
+    description: "Fresh sushi & Japanese cuisine",
+    cuisine: ["Japanese", "Sushi", "Asian"],
+    rating: 4.7,
+    reviewCount: 892,
+    deliveryTime: "30-40 min",
+    deliveryFee: 2.9,
+    minOrder: 15.0,
+    image: require("@/assets/images/dummy/sushi_takumi.png"),
+    location: {
+      address: "Ludgeristraße 45, 48143 Münster",
+      latitude: 51.9635,
+      longitude: 7.6234,
+    },
+    tags: ["Premium quality", "Sustainable"],
+    isOpen: true,
+    openingHours: {
+      monday: "12:00-21:30",
+      tuesday: "12:00-21:30",
+      wednesday: "12:00-21:30",
+      thursday: "12:00-21:30",
+      friday: "12:00-22:30",
+      saturday: "12:00-22:30",
+      sunday: "13:00-21:00",
+    },
+  },
+  {
+    id: "rest_004",
+    name: "Döner Palace",
+    description: "Traditional Turkish döner & more",
+    cuisine: ["Turkish", "Kebab", "Mediterranean"],
+    rating: 4.5,
+    reviewCount: 1678,
+    deliveryTime: "15-25 min",
+    deliveryFee: 1.5,
+    minOrder: 8.0,
+    image: require("@/assets/images/dummy/doner_palace.png"),
+    location: {
+      address: "Hammer Straße 18, 48153 Münster",
+      latitude: 51.9642,
+      longitude: 7.6312,
+    },
+    tags: ["Budget friendly", "Fast delivery"],
+    isOpen: true,
+    openingHours: {
+      monday: "10:30-23:00",
+      tuesday: "10:30-23:00",
+      wednesday: "10:30-23:00",
+      thursday: "10:30-23:00",
+      friday: "10:30-01:00",
+      saturday: "11:00-01:00",
+      sunday: "11:00-23:00",
+    },
+  },
+  {
+    id: "rest_005",
+    name: "Pad Thai House",
+    description: "Authentic Thai street food",
+    cuisine: ["Thai", "Asian", "Vegetarian"],
+    rating: 4.6,
+    reviewCount: 743,
+    deliveryTime: "25-35 min",
+    deliveryFee: 2.2,
+    minOrder: 11.0,
+    image: require("@/assets/images/dummy/pad_thai_house.png"),
+    location: {
+      address: "Warendorfer Straße 67, 48145 Münster",
+      latitude: 51.9598,
+      longitude: 7.6401,
+    },
+    tags: ["Vegan options", "Spicy"],
+    isOpen: true,
+    openingHours: {
+      monday: "11:30-22:00",
+      tuesday: "11:30-22:00",
+      wednesday: "11:30-22:00",
+      thursday: "11:30-22:00",
+      friday: "11:30-22:30",
+      saturday: "12:00-22:30",
+      sunday: "12:00-21:30",
+    },
+  },
+  {
+    id: "rest_006",
+    name: "Salad Bar Fresh",
+    description: "Healthy salads & bowls",
+    cuisine: ["Healthy", "Salads", "Vegetarian"],
+    rating: 4.4,
+    reviewCount: 521,
+    deliveryTime: "20-30 min",
+    deliveryFee: 2.0,
+    minOrder: 9.0,
+    image: require("@/assets/images/icon.png"),
+    location: {
+      address: "Rothenburg 34, 48143 Münster",
+      latitude: 51.9611,
+      longitude: 7.6298,
+    },
+    tags: ["Healthy", "Vegan options", "Gluten-free"],
+    isOpen: true,
+    openingHours: {
+      monday: "10:00-20:00",
+      tuesday: "10:00-20:00",
+      wednesday: "10:00-20:00",
+      thursday: "10:00-20:00",
+      friday: "10:00-20:00",
+      saturday: "11:00-19:00",
+      sunday: "Closed",
+    },
+  },
+  {
+    id: "rest_007",
+    name: "Curry Corner",
+    description: "Flavorful Indian curries & tandoori",
+    cuisine: ["Indian", "Curry", "Asian"],
+    rating: 4.7,
+    reviewCount: 1034,
+    deliveryTime: "30-40 min",
+    deliveryFee: 2.4,
+    minOrder: 13.0,
+    image: require("@/assets/images/icon.png"),
+    location: {
+      address: "Wolbecker Straße 112, 48155 Münster",
+      latitude: 51.9589,
+      longitude: 7.6445,
+    },
+    tags: ["Spicy", "Vegetarian options"],
+    isOpen: true,
+    openingHours: {
+      monday: "11:00-22:00",
+      tuesday: "11:00-22:00",
+      wednesday: "11:00-22:00",
+      thursday: "11:00-22:00",
+      friday: "11:00-23:00",
+      saturday: "12:00-23:00",
+      sunday: "12:00-22:00",
+    },
+  },
+  {
+    id: "rest_008",
+    name: "Poke Bowl Paradise",
+    description: "Fresh Hawaiian poke bowls",
+    cuisine: ["Hawaiian", "Healthy", "Seafood"],
+    rating: 4.5,
+    reviewCount: 687,
+    deliveryTime: "25-35 min",
+    deliveryFee: 2.7,
+    minOrder: 12.0,
+    image: require("@/assets/images/icon.png"),
+    location: {
+      address: "Aegidiistraße 56, 48143 Münster",
+      latitude: 51.9603,
+      longitude: 7.6311,
+    },
+    tags: ["Fresh ingredients", "Healthy"],
+    isOpen: true,
+    openingHours: {
+      monday: "11:00-21:00",
+      tuesday: "11:00-21:00",
+      wednesday: "11:00-21:00",
+      thursday: "11:00-21:00",
+      friday: "11:00-21:30",
+      saturday: "11:30-21:30",
+      sunday: "12:00-20:00",
+    },
+  },
+  {
+    id: "rest_009",
+    name: "La Baguette",
+    description: "French bakery & café",
+    cuisine: ["French", "Bakery", "Café"],
+    rating: 4.8,
+    reviewCount: 1523,
+    deliveryTime: "20-30 min",
+    deliveryFee: 1.8,
+    minOrder: 7.0,
+    image: require("@/assets/images/icon.png"),
+    location: {
+      address: "Königsstraße 42, 48143 Münster",
+      latitude: 51.9628,
+      longitude: 7.6278,
+    },
+    tags: ["Breakfast", "Coffee", "Pastries"],
+    isOpen: true,
+    openingHours: {
+      monday: "07:00-19:00",
+      tuesday: "07:00-19:00",
+      wednesday: "07:00-19:00",
+      thursday: "07:00-19:00",
+      friday: "07:00-20:00",
+      saturday: "08:00-20:00",
+      sunday: "08:00-18:00",
+    },
+  },
+  {
+    id: "rest_010",
+    name: "Taco Loco",
+    description: "Mexican street food & tacos",
+    cuisine: ["Mexican", "Tacos", "Latin American"],
+    rating: 4.6,
+    reviewCount: 945,
+    deliveryTime: "25-35 min",
+    deliveryFee: 2.3,
+    minOrder: 11.0,
+    image: require("@/assets/images/icon.png"),
+    location: {
+      address: "Steinfurter Straße 89, 48149 Münster",
+      latitude: 51.9711,
+      longitude: 7.6189,
+    },
+    tags: ["Spicy", "Vegetarian options"],
+    isOpen: true,
+    openingHours: {
+      monday: "11:30-22:00",
+      tuesday: "11:30-22:00",
+      wednesday: "11:30-22:00",
+      thursday: "11:30-22:00",
+      friday: "11:30-23:00",
+      saturday: "12:00-23:00",
+      sunday: "12:00-22:00",
+    },
+  },
+];
