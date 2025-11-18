@@ -51,7 +51,8 @@ const SmoothInfiniteAnimated = ({
 
   const iconData = iconDataSets[iconSet];
   const items = [...iconData, ...iconData];
-  const totalContentHeight = iconData.length * ITEM_HEIGHT;
+  const totalContentHeight =
+    iconData.length * ITEM_HEIGHT + iconData.length * GAP;
 
   useEffect(() => {
     if (scrollDirection === "up") {
@@ -81,7 +82,7 @@ const SmoothInfiniteAnimated = ({
           scrollTo(scrollRef, 0, currentValue, false);
         }
       } else {
-        if (currentValue < 0) {
+        if (currentValue <= 0) {
           scrollY.value = totalContentHeight;
           scrollTo(scrollRef, 0, totalContentHeight, false);
         } else {
