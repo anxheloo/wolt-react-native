@@ -1,3 +1,4 @@
+import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 // Axios Client
@@ -32,11 +33,11 @@ export const apiClient = axios.create({
 //   defaultOptions: {
 //     queries: {
 //       staleTime: Infinity,
-//         // gcTime: Infinity,
+//       gcTime: Infinity,
 //       refetchOnWindowFocus: false,
 //       refetchOnMount: false,
 //       refetchOnReconnect: false, //By setting it to always it takes advantage of the staleTime and always performs that
 //     },
 //   },
 // };
-// export const queryClient = new QueryClient(DEFAULT_OPTIONS);
+export const queryClient = new QueryClient();
