@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { StyleSheet } from "react-native";
 
 import { queryClient } from "@/api/apiClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -6,11 +7,15 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { SplashScreen, Stack } from "expo-router";
 
+import { useAppStore } from "@/store/useAppStore";
 import { useFonts } from "expo-font";
 
 import { Colors, Fonts } from "@/constants/theme";
 
 export default function RootLayout() {
+  const isGuest = useAppStore((state) => state.isGuest);
+  const user = useAppStore((state) => state.user);
+
   const [loaded] = useFonts({
     [Fonts.light]: require("../../assets/fonts/Nunito-Light.ttf"),
     [Fonts.regular]: require("../../assets/fonts/Nunito-Regular.ttf"),
@@ -24,23 +29,20 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-  let isLoggedIn = false;
-
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={styles.gestureHandler}>
       <QueryClientProvider client={queryClient}>
         <Stack
           screenOptions={{
             headerShown: false,
             contentStyle: { backgroundColor: Colors.light.background },
           }}
-          // initialRouteName="auth"
         >
-          <Stack.Protected guard={!isLoggedIn}>
+          <Stack.Protected guard={!user && !isGuest}>
             <Stack.Screen name="(auth)" />
           </Stack.Protected>
 
-          <Stack.Protected guard={isLoggedIn}>
+          <Stack.Protected guard={user || isGuest}>
             <Stack.Screen name="(app)" />
           </Stack.Protected>
         </Stack>
@@ -48,3 +50,9 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  gestureHandler: {
+    flex: 1,
+  },
+});
