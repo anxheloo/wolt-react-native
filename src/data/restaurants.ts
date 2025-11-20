@@ -38,7 +38,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "25-35 min",
     deliveryFee: 1.9,
     minOrder: 10.0,
-    image: require("@/assets/images/dummy/pizza_perfetto.png"),
+    image: require("../../assets/images/dummy/pizza_perfetto.png"),
     location: {
       address: "Prinzipalmarkt 12, 48143 Münster",
       latitude: 51.9625,
@@ -66,7 +66,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "20-30 min",
     deliveryFee: 2.5,
     minOrder: 12.0,
-    image: require("@/assets/images/dummy/burgerhaven.png"),
+    image: require("../../assets/images/dummy/burgerhaven.png"),
     location: {
       address: "Salzstraße 28, 48143 Münster",
       latitude: 51.9618,
@@ -94,7 +94,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "30-40 min",
     deliveryFee: 2.9,
     minOrder: 15.0,
-    image: require("@/assets/images/dummy/sushi_takumi.png"),
+    image: require("../../assets/images/dummy/sushi_takumi.png"),
     location: {
       address: "Ludgeristraße 45, 48143 Münster",
       latitude: 51.9635,
@@ -122,7 +122,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "15-25 min",
     deliveryFee: 1.5,
     minOrder: 8.0,
-    image: require("@/assets/images/dummy/doner_palace.png"),
+    image: require("../../assets/images/dummy/doner_palace.png"),
     location: {
       address: "Hammer Straße 18, 48153 Münster",
       latitude: 51.9642,
@@ -150,7 +150,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "25-35 min",
     deliveryFee: 2.2,
     minOrder: 11.0,
-    image: require("@/assets/images/dummy/pad_thai_house.png"),
+    image: require("../../assets/images/dummy/pad_thai_house.png"),
     location: {
       address: "Warendorfer Straße 67, 48145 Münster",
       latitude: 51.9598,
@@ -178,7 +178,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "20-30 min",
     deliveryFee: 2.0,
     minOrder: 9.0,
-    image: require("@/assets/images/icon.png"),
+    image: require("../../assets/images/icon.png"),
     location: {
       address: "Rothenburg 34, 48143 Münster",
       latitude: 51.9611,
@@ -206,7 +206,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "30-40 min",
     deliveryFee: 2.4,
     minOrder: 13.0,
-    image: require("@/assets/images/icon.png"),
+    image: require("../../assets/images/icon.png"),
     location: {
       address: "Wolbecker Straße 112, 48155 Münster",
       latitude: 51.9589,
@@ -234,7 +234,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "25-35 min",
     deliveryFee: 2.7,
     minOrder: 12.0,
-    image: require("@/assets/images/icon.png"),
+    image: require("../../assets/images/icon.png"),
     location: {
       address: "Aegidiistraße 56, 48143 Münster",
       latitude: 51.9603,
@@ -262,7 +262,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "20-30 min",
     deliveryFee: 1.8,
     minOrder: 7.0,
-    image: require("@/assets/images/icon.png"),
+    image: require("../../assets/images/icon.png"),
     location: {
       address: "Königsstraße 42, 48143 Münster",
       latitude: 51.9628,
@@ -290,7 +290,7 @@ export const restaurants: Restaurant[] = [
     deliveryTime: "25-35 min",
     deliveryFee: 2.3,
     minOrder: 11.0,
-    image: require("@/assets/images/icon.png"),
+    image: require("../../assets/images/icon.png"),
     location: {
       address: "Steinfurter Straße 89, 48149 Münster",
       latitude: 51.9711,
