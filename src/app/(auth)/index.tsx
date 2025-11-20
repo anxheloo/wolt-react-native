@@ -15,7 +15,7 @@ import AppleAuthBtn from "@/components/Auth/AppleAuthBtn";
 import GoogleAuthBtn from "@/components/Auth/GoogleAuthBtn";
 import SmoothInfiniteAnimated from "@/components/Auth/SmoothInfiniteAnimated";
 
-import { Colors, Fonts } from "@/constants/theme";
+import { Colors, Fonts } from "@/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { Link, useRouter } from "expo-router";
 

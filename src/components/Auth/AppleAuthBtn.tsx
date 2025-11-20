@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-import { Fonts } from "../../constants/theme";
+import { Fonts } from "../../theme";
 
 const AppleAuthBtn = () => {
   return (

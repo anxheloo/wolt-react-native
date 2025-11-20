@@ -1,28 +1,23 @@
-import { Stack } from "expo-router";
 import React from "react";
+import { StyleSheet } from "react-native";
 
 import { Colors } from "@/theme";
+
+import { Stack } from "expo-router";
 
 const Layout = () => {
   return (
     <Stack
       screenOptions={{
-        headerShown: false,
         contentStyle: { backgroundColor: Colors.light.background },
+        headerShown: false,
       }}
     >
       <Stack.Screen name="index" />
-      <Stack.Screen
-        name="other-options"
-        options={{
-          title: "",
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.6],
-          sheetCornerRadius: 12,
-        }}
-      />
     </Stack>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default Layout;

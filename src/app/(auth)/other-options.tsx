@@ -8,7 +8,7 @@ import GoogleAuthBtn from "@/components/Auth/GoogleAuthBtn";
 
 import { useRouter } from "expo-router";
 
-import { Colors, Fonts } from "@/constants/theme";
+import { Colors, Fonts } from "@/theme";
 
 import FacebookAuthBtn from "@/components/Auth/FacebookAuthBtn";
 import { useAppStore } from "@/store/useAppStore";

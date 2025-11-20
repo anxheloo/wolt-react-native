@@ -10,7 +10,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { useAppStore } from "@/store/useAppStore";
 import { useFonts } from "expo-font";
 
-import { Colors, Fonts } from "@/constants/theme";
+import { Colors, Fonts } from "@/theme";
 
 export default function RootLayout() {
   const isGuest = useAppStore((state) => state.isGuest);

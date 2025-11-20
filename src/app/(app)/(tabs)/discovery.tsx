@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { useAppStore } from "@/store/useAppStore";
 
-const Index = () => {
+import { Colors } from "@/theme";
+
+const Discovery = () => {
   const updateUserSlice = useAppStore((state) => state.updateUserSlice);
 
   return (
@@ -24,7 +26,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: Colors.light.background,
   },
 });
 
-export default Index;
+export default Discovery;
