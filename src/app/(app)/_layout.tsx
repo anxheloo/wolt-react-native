@@ -52,19 +52,47 @@ const Layout = () => {
           ),
         }}
       />
+      <Stack.Screen
+        name="(modals)/map"
+        options={{
+          // presentation: "formSheet",
+          // sheetAllowedDetents: [0.8],
+          // sheetCornerRadius: 12,
+          // sheetGrabberVisible: true,
+          contentStyle: { backgroundColor: Colors.light.background },
+        }}
+      />
+      <Stack.Screen
+        name="(modals)/(restaurant)/[id]"
+        options={{
+          headerShown: true,
+          title: "",
+          presentation: "formSheet",
+          sheetAllowedDetents: [0.8],
+          sheetCornerRadius: 12,
+          sheetGrabberVisible: true,
+          contentStyle: { backgroundColor: Colors.light.background },
+          headerRight: () => (
+            <TouchableOpacity
+              style={styles.closeBtn}
+              onPress={() => router.dismiss()}
+            >
+              <AntDesign name="close" size={20} color="black" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </Stack>
   );
 };
 
 const styles = StyleSheet.create({
   closeBtn: {
-    // backgroundColor: Colors.light.light,
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
     width: 40,
     height: 40,
-    // padding: 10,
   },
 });
 
