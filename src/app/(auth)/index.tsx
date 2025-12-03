@@ -1,6 +1,7 @@
 import React from "react";
 
 import {
+  Button,
   Linking,
   StyleSheet,
   Text,
@@ -18,6 +19,8 @@ import SmoothInfiniteAnimated from "@/components/Auth/SmoothInfiniteAnimated";
 import { Colors, Fonts } from "@/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { Link, useRouter } from "expo-router";
+
+import * as Sentry from "@sentry/react-native";
 
 const Login = () => {
   const router = useRouter();
@@ -57,6 +60,12 @@ const Login = () => {
 
         {/* Login Buttons */}
         <View style={styles.btnContainer}>
+          <Button
+            title="Try!"
+            onPress={() => {
+              Sentry.captureException(new Error("First error"));
+            }}
+          />
           <Animated.View entering={FadeInDown.delay(100)}>
             <GoogleAuthBtn />
           </Animated.View>

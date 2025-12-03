@@ -87,7 +87,7 @@ const Map = () => {
     })) || [];
 
   const markerSelected = (e: any) => {
-    router.push(`/(modal)/(restaurant)/${e.id}`);
+    router.push(`/(modals)/(restaurant)/[${e.id}]`);
   };
 
   if (restaurantMarkersLoading || restaurantsLoading) {
@@ -108,7 +108,7 @@ const Map = () => {
           <Ionicons name="chevron-back" size={22} color={Colors.light.muted} />
         </TouchableOpacity>
         <View style={styles.headerRight}>
-          <Link href={"/(app)/(auth)/(modal)/filter"} asChild>
+          <Link href={"/(modals)/filter"} asChild>
             <TouchableOpacity style={styles.backButton}>
               <Ionicons name="filter" size={22} />
             </TouchableOpacity>
