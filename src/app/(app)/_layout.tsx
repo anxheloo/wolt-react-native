@@ -1,7 +1,9 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
-import { Stack, useRouter } from "expo-router";
+import { Stack } from "@/components/ScreenTransition/Stack";
+import { useRouter } from "expo-router";
+import Transition from "react-native-screen-transitions";
 
 import { Colors } from "@/theme";
 import { AntDesign } from "@expo/vector-icons";
@@ -10,7 +12,11 @@ const Layout = () => {
   const router = useRouter();
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="(tabs)" />
       <Stack.Screen
         name="(modals)/location"
@@ -59,27 +65,29 @@ const Layout = () => {
           // sheetAllowedDetents: [0.8],
           // sheetCornerRadius: 12,
           // sheetGrabberVisible: true,
+          ...Transition.presets.ZoomIn(),
           contentStyle: { backgroundColor: Colors.light.background },
         }}
       />
       <Stack.Screen
         name="(modals)/(restaurant)/[id]"
         options={{
-          headerShown: true,
-          title: "",
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.8],
-          sheetCornerRadius: 12,
-          sheetGrabberVisible: true,
-          contentStyle: { backgroundColor: Colors.light.background },
-          headerRight: () => (
-            <TouchableOpacity
-              style={styles.closeBtn}
-              onPress={() => router.dismiss()}
-            >
-              <AntDesign name="close" size={20} color="black" />
-            </TouchableOpacity>
-          ),
+          ...Transition.presets.ZoomIn(),
+          // headerShown: true,
+          // title: "",
+          // // presentation: "formSheet",
+          // // sheetAllowedDetents: [0.8],
+          // // sheetCornerRadius: 12,
+          // sheetGrabberVisible: true,
+          // contentStyle: { backgroundColor: Colors.light.background },
+          // headerRight: () => (
+          //   <TouchableOpacity
+          //     style={styles.closeBtn}
+          //     onPress={() => router.dismiss()}
+          //   >
+          //     <AntDesign name="close" size={20} color="black" />
+          //   </TouchableOpacity>
+          // ),
         }}
       />
     </Stack>
