@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ViewToken,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -64,12 +65,13 @@ const Id = () => {
     [menu]
   );
 
+  // Updating scroll offset
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
       scrollOffset.value = event.contentOffset.y;
     },
   });
-
+  // Image Parallax
   const parallaxStyle = useAnimatedStyle(() => {
     const scale = interpolate(
       scrollOffset.value,
@@ -129,19 +131,21 @@ const Id = () => {
     };
   });
 
+  // Scroll to selected category inside Section List
   const handleCategoryPress = (index: number) => {
     setActiveCategory(index);
     sectionListRef.current?.scrollToLocation({
       sectionIndex: index,
-      // itemIndex: 0,
-      itemIndex: index,
+      itemIndex: 0,
       animated: true,
-      viewOffset: insets.top + 100,
+      viewOffset: insets.top + 130,
+      viewPosition: 0,
     });
 
     scrollCategoryTabIntoView(index);
   };
 
+  // Scroll horizontally to selected category inside Category Tabs
   const scrollCategoryTabIntoView = (index: number) => {
     categoryScrollRef?.current?.scrollTo({
       x: index * categoryTabWidth - width / 2 + categoryTabWidth / 2,
@@ -150,7 +154,13 @@ const Id = () => {
   };
 
   const onViewableItemsChanged = useCallback(
-    ({ viewableItems }: any) => {
+    ({
+      viewableItems,
+      changed,
+    }: {
+      viewableItems: ViewToken<Dish>[];
+      changed: ViewToken<Dish>[];
+    }): void => {
       if (viewableItems.length > 0) {
         const firstVisibleSection = viewableItems[0].section;
         const sectionIndex = sections?.findIndex(
@@ -158,7 +168,7 @@ const Id = () => {
         );
         if (sectionIndex !== -1 && sectionIndex !== activeCategory) {
           setActiveCategory(sectionIndex);
-          // scrollCategoryTabIntoView(sectionIndex);
+          scrollCategoryTabIntoView(sectionIndex);
         }
       }
     },
@@ -189,9 +199,6 @@ const Id = () => {
         source={restaurant.image!}
       />
       <Animated.View style={[styles.whiteOverlay, overlayStyle]} />
-      {/* <View style={{ zIndex: 10 }}>
-        <RestaurantDetailsHeader scrollOffset={scrollOffset} />
-      </View> */}
       <RestaurantDetailsHeader scrollOffset={scrollOffset} />
       <Animated.View
         style={[
@@ -236,7 +243,9 @@ const Id = () => {
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
         onViewableItemsChanged={onViewableItemsChanged}
-        // viewabilityConfig={}
+        viewabilityConfig={{
+          viewAreaCoveragePercentThreshold: 50,
+        }}
         renderSectionHeader={({ section }: { section: any }) => (
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>{section.title}</Text>
@@ -449,8 +458,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 0,
     right: 0,
-    zIndex: 100,
     backgroundColor: "#fff",
+    zIndex: 1001,
   },
   categoryTabsContainer: {
     boxShadow: "0px 4px 2px -2px rgba(0, 0, 0, 0.1)",
