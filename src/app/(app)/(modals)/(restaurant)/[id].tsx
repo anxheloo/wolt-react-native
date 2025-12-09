@@ -26,6 +26,7 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 
+import RestaurantDetailsHeader from "@/components/Screens/Restaurants/RestaurantDetailsHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import Svg, { Path } from "react-native-svg";
@@ -36,6 +37,7 @@ const STICKY_THRESHOLD_START = 260;
 const STICKY_THRESHOLD_END = 320;
 
 const AnimatedSectionList = Animated.createAnimatedComponent(SectionList<Dish>);
+const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 const Id = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -71,8 +73,8 @@ const Id = () => {
   const parallaxStyle = useAnimatedStyle(() => {
     const scale = interpolate(
       scrollOffset.value,
-      [-100, 0],
-      [1.5, 1],
+      [0, 300],
+      [1, 1.5],
       Extrapolation.CLAMP
     );
 
@@ -111,6 +113,19 @@ const Id = () => {
 
     return {
       opacity,
+    };
+  });
+
+  const svgStyle = useAnimatedStyle(() => {
+    const topStyleValue = interpolate(
+      scrollOffset.value,
+      [0, 30],
+      [0, -30],
+      Extrapolation.CLAMP
+    );
+
+    return {
+      top: topStyleValue,
     };
   });
 
@@ -177,11 +192,12 @@ const Id = () => {
       {/* <View style={{ zIndex: 10 }}>
         <RestaurantDetailsHeader scrollOffset={scrollOffset} />
       </View> */}
+      <RestaurantDetailsHeader scrollOffset={scrollOffset} />
       <Animated.View
         style={[
           styles.stickyTabsOverlay,
           stickyTabsStyle,
-          { top: insets.top + 64 },
+          { top: insets.top + 85 },
         ]}
       >
         <View style={styles.categoryTabsContainer}>
@@ -237,11 +253,12 @@ const Id = () => {
             <View style={styles.imageSpacer} />
 
             <View style={styles.whiteContentContainer}>
-              <Svg
+              <AnimatedSvg
                 height={30}
                 width={width}
                 viewBox={`0 0 ${width} 30`}
-                style={{ position: "absolute", top: -29, left: 0 }}
+                style={[{ position: "absolute", left: 0, right: 0 }, svgStyle]}
+                preserveAspectRatio="none"
               >
                 <Path
                   d={`M 0,30 Q ${
@@ -249,7 +266,7 @@ const Id = () => {
                   },0 ${width},30 L ${width},30 L 0,30 Z`}
                   fill="#fff"
                 />
-              </Svg>
+              </AnimatedSvg>
 
               <View style={styles.logoContainer}>
                 <Image source={restaurant.image!} style={styles.logo} />
