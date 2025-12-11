@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   },
   bottomBar: {
     position: "absolute",
-    bottom: 10,
+    bottom: 0,
     left: 0,
     right: 0,
     backgroundColor: "transparent",

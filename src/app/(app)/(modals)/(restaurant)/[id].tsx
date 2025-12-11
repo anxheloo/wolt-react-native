@@ -27,6 +27,7 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 
+import ViewOrderButton from "@/components/Buttons/ViewOrderButton";
 import RestaurantDetailsHeader from "@/components/Screens/Restaurants/RestaurantDetailsHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -204,7 +205,7 @@ const Id = () => {
         style={[
           styles.stickyTabsOverlay,
           stickyTabsStyle,
-          { top: insets.top + 85 },
+          { top: insets.top + 60 },
         ]}
       >
         <View style={styles.categoryTabsContainer}>
@@ -331,7 +332,7 @@ const Id = () => {
         }
       />
 
-      {/* <ViewOrderButton restaurant={restaurant} /> */}
+      <ViewOrderButton restaurant={restaurant} />
     </View>
   );
 };

@@ -42,6 +42,13 @@ const RestaurantHeader = ({ title, scrollOffset }: RestaurantHeaderProps) => {
           ),
         },
       ],
+
+      zIndex: interpolate(
+        scrollOffset.value,
+        [0, SCROLL_THRESHOLD / 2],
+        [99, 0],
+        Extrapolation.CLAMP
+      ),
     };
   });
   const header2Style = useAnimatedStyle(() => {
@@ -63,6 +70,13 @@ const RestaurantHeader = ({ title, scrollOffset }: RestaurantHeaderProps) => {
         },
       ],
       boxShadow: "0px 2px 2px -2px rgba(0, 0, 0, 0.2)",
+
+      zIndex: interpolate(
+        scrollOffset.value,
+        [0, SCROLL_THRESHOLD / 2],
+        [0, 99],
+        Extrapolation.CLAMP
+      ),
     };
   });
 
@@ -82,13 +96,21 @@ const RestaurantHeader = ({ title, scrollOffset }: RestaurantHeaderProps) => {
         </Link>
 
         <View style={styles.rightIcon}>
-          <Link href={"/(app)/(modals)/filter"} asChild>
+          <Link
+            href={"/(app)/(modals)/filter"}
+            asChild
+            style={{ backgroundColor: "red" }}
+          >
             <TouchableOpacity style={styles.iconContainer}>
               <Ionicons name="filter" size={20} color="black" />
             </TouchableOpacity>
           </Link>
 
-          <Link href={"/(app)/(modals)/map"} asChild>
+          <Link
+            href={"/(app)/(modals)/map"}
+            asChild
+            style={{ backgroundColor: "blue" }}
+          >
             <TouchableOpacity style={styles.iconContainer}>
               <Ionicons name="map-outline" size={20} color="black" />
             </TouchableOpacity>

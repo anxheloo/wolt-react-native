@@ -90,6 +90,26 @@ const Layout = () => {
           // ),
         }}
       />
+      <Stack.Screen
+        name="(modals)/(menu)/[id]"
+        options={{
+          headerShown: false,
+          title: "",
+          presentation: "formSheet",
+          sheetAllowedDetents: [0.9],
+          sheetCornerRadius: 12,
+          sheetGrabberVisible: true,
+          contentStyle: { backgroundColor: Colors.light.background },
+        }}
+      />
+      <Stack.Screen
+        name="order"
+        options={{
+          // enableTransitions: true,
+          ...Transition.presets.SharedXImage(),
+          contentStyle: { backgroundColor: "transparent" },
+        }}
+      />
     </Stack>
   );
 };
